@@ -1,0 +1,17 @@
+body {
+  background-color: #f5f5f5;
+}
+
+table {
+  margin: auto;
+  border: 1px solid black;
+}
+td {
+  background: white;
+  margin: 0px;
+  box-shadow: inset 1px 1px #c0c0c0, inset -1px -1px #c0c0c0;
+}
+.content {
+  width: 100%;
+  text-align: center;
+}

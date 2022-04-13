@@ -23,7 +23,20 @@
     <script src="/script.js" defer></script>
   </head>
   
-  <body>
+  <body onload="startgame()">
+	<h1>Game of Life</h1>
 
-  </body>
+	<div class="content">
+		<div class="controlbuttons">
+			<button id="start">Start</button>
+			<button id="stop">Stop</button>
+			<button id="gen1">+1 Generation</button>
+			<button id="gen23">+23 Generations</button>
+			<button id="clear">Clear</button>
+		</div>
+		<br>
+		<div id="grid"></div>
+	</div>
+
+</body>
 </html>
