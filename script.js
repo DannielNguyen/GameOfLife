@@ -32,15 +32,27 @@ function gridrows(name) {
 }
 function select(name){
   let myItem=document.getElementById(name);
+  myItem.classList.add('marked');
   alert(":"+name);
   
 }
 function gridcolumns(name) {
     var colattribute = document.createElement("td");
     colattribute.setAttribute("id", name);
-    colattribute.setAttribute("onclick",`select(${name})`);
-    colattribute.style.height = (500 / size) + "px";
-    colattribute.style.width = (500 / size) + "px";
+    colattribute.setAttribute("onclick", "clickcells(this)")
     return colattribute;
 }
 
+//changing cells from alive to dead
+function clickcells(td) {
+    var cell = td.style.background;
+    if (cell == "black") {
+        td.style.background = "white";
+    }
+    else {
+        td.style.background = "black";
+    }
+}
+
+//Testy test
+//More testing

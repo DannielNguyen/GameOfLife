@@ -22,14 +22,17 @@
     <!-- Import the webpage's javascript file -->
     <script src="/script.js" defer></script>
   </head>
-  
-  <body onload="startgame()">
-	<h1>Game of Life</h1>
 
+<!-- loads grid on start -->
+<body onload="startgame()">
+
+	<!-- main div -->
 	<div class="content">
+    <h1>Game of Life</h1>
+		<!-- buttons -->
 		<div class="controlbuttons">
-			<button id="start">Start</button>
-			<button id="stop">Stop</button>
+			<button id="start" onclick="start()">Start</button>
+			<button id="stop" onclick="stop()">Stop</button>
 			<button id="gen1">+1 Generation</button>
 			<button id="gen23">+23 Generations</button>
 			<button id="clear">Clear</button>
