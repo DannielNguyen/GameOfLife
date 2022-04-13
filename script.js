@@ -1,3 +1,7 @@
+/* References: 
+https://javascript.plainenglish.io/the-game-of-life-using-javascript-fc1aaec8274f
+*/
+
 //user input grid size
 var size = window.prompt("Enter Number for Grid Size: ");
 
@@ -54,5 +58,3 @@ function clickcells(td) {
     }
 }
 
-//Testy test
-//More testing
