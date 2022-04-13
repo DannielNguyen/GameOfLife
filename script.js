@@ -28,12 +28,16 @@ function creategrid() {
 function gridrows(name) {
     var rowattribute = document.createElement("tr");
     rowattribute.setAttribute("id", name);
-    rowattribute.setAttribute("onclick","")
     return rowattribute;
 }
-
+function select(name){
+  let myItem=document.getElementById(name);
+  alert(name);
+  
+}
 function gridcolumns(name) {
     var colattribute = document.createElement("td");
+    colattribute.setAttribute("onclick",`select(${name})`);
     colattribute.setAttribute("id", name);
     colattribute.style.height = (500 / size) + "px";
     colattribute.style.width = (500 / size) + "px";
