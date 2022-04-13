@@ -32,13 +32,13 @@ function gridrows(name) {
 }
 function select(name){
   let myItem=document.getElementById(name);
-  alert(name);
+  alert(":"+name);
   
 }
 function gridcolumns(name) {
     var colattribute = document.createElement("td");
-    colattribute.setAttribute("onclick",`select(${name})`);
     colattribute.setAttribute("id", name);
+    colattribute.setAttribute("onclick",`select(${name})`);
     colattribute.style.height = (500 / size) + "px";
     colattribute.style.width = (500 / size) + "px";
     return colattribute;
