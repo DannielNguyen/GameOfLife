@@ -1,6 +1,5 @@
 /* References: 
-https://javascript.plainenglish.io/the-game-of-life-using-javascript-fc1aaec8274f
-This was referenced for building the grid
+This was referenced for building the grid: https://javascript.plainenglish.io/the-game-of-life-using-javascript-fc1aaec8274f
 
 */
 
