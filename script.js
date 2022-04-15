@@ -23,7 +23,7 @@ function creategrid() {
         var row = gridrows(tr);
         for (var j = 0; j < size; j++) {
             var td = "td_" + i + "_" + j;
-            var col = gridcolumns(td);
+            var col = gridcolumns(td,i,j);
             row.appendChild(col);
         }
         grid.appendChild(row);
@@ -36,17 +36,25 @@ function gridrows(name) {
     rowattribute.setAttribute("id", name);
     return rowattribute;
 }
-function select(name){
-  let myItem=document.getElementById(name);
-  myItem.classList.add('marked');
-  alert(":"+name);
-  
-}
-function gridcolumns(name) {
+
+function gridcolumns(name,row,column) {
     var colattribute = document.createElement("td");
     colattribute.setAttribute("id", name);
-    colattribute.setAttribute("onclick", "clickcells(this)")
+    colattribute.setAttribute("onclick", "select(this)");
+  colattribute.setAttribute("row", row);
+  colattribute.setAttribute("col", column);
+  
     return colattribute;
+}
+
+function select(td){
+  if(td.classList.contains("alive")){
+    alert("Cell was alive");
+  }
+  if(td.classList.contains("dead")){
+    alert("Cell was dead");
+    alert(`You clicked row ${this.col}`);
+  }
 }
 
 //changing cells from alive to dead

@@ -17,11 +17,11 @@ td {
   box-shadow: inset 1px 1px #707070, inset -1px -1px #707070;
 }
 td:hover {
-  background: #707070;
+  background: purple;
 }
-dead {
+.dead {
   background: white;
 }
-alive {
+.alive {
   background:black;
 }
