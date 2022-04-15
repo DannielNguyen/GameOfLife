@@ -4,6 +4,7 @@ This was referenced for building the grid: https://javascript.plainenglish.io/th
 */
 
 //user input grid size
+var gameArray;
 var size = window.prompt("Enter Number for Grid Size: ");
 createArray();
 //function that loads the game
@@ -62,13 +63,29 @@ function createArray(){
   //I'm using the rows and columns variable to make it easier to understand the structure of my array
   let rows= size;
   let columns=size;
-  var gameArray=[];
+  gameArray=[];
   for(let i=0;i<rows; i++){
     //Initialize a new column
     gameArray[i]=[];
     for(let j=0;j<columns;j++){
-      myArray
+      gameArray[i][j]=0;
     }
   }
   
+}
+function displayArray(){
+  for(let i=0;i<size; i++){
+  
+    for(let j=0;j<size;j++){
+      let id= "td_" + i + "_" + j;
+      let curr=document.getElementById(id);
+      if(gameArray[i][j]==0){
+        curr.classList.add('dead');
+      }
+      if(gameArray[i][j]==1){
+        curr.classList.add('alive');
+      }
+      
+    }
+  }
 }
