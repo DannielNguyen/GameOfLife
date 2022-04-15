@@ -48,13 +48,15 @@ function gridcolumns(name,row,column) {
 }
 
 function select(td){
-  if(td.classList.contains("alive")){
-    alert("Cell was alive");
+  let row=td.getAttribute('row');
+  let col=td.getAttribute('col');
+  if(gameArray[row][col]==0){
+    gameArray[row][col]++;
+  }else {
+    gameArray[row][col]--;
   }
-  if(td.classList.contains("dead")){
-    alert("Cell was dead");
-    alert(`You clicked row ${this.col}`);
-  }
+  //alert(`You clicked row ${row} and col ${col}`);
+  displayArray();
 }
 
 //changing cells from alive to dead
@@ -89,9 +91,11 @@ function displayArray(){
       let curr=document.getElementById(id);
       if(gameArray[i][j]==0){
         curr.classList.add('dead');
+        curr.classList.remove('alive');
       }
       if(gameArray[i][j]==1){
         curr.classList.add('alive');
+        curr.classList.remove('dead');
       }
       
     }
