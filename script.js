@@ -97,7 +97,6 @@ function displayArray(){
         curr.classList.add('alive');
         curr.classList.remove('dead');
       }
-      
     }
   }
 }
