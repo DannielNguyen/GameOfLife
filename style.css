@@ -4,7 +4,9 @@ body {
 }
 h1 {
   font-size: 25pt;
-  color: purple;
+  background-image: -webkit-linear-gradient(60deg, #dda0dd, #4b0082);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .content {
   width: 100%;
