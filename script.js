@@ -101,6 +101,7 @@ function displayArray(){
     }
   }
 }
+
 function start(){
   //Start a timer to increment a generation every 5 sec
   //Use an interval ?
@@ -131,6 +132,10 @@ function updateLifeCycle() {
          //   document.getElementById("generation").innerHTML = this.generation;
 }
 function gen1(){
+  updateLifeCycle();
+  displayArray();
+}
+function gen23(){
   updateLifeCycle();
   displayArray();
 }
