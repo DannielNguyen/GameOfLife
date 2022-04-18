@@ -137,15 +137,21 @@ function gen1(){
 function updateCellValue(row, col){
 
             const total = countNeighbours(row, col);
-            if (total > 4 || total < 3) {
+            if(gameArray[row][col]=== 1){
+              //We are looking at a live cell
+              if(total<2 || total>3){
+                //If it's underpopulated or overcrowded
                 return 0;
-            }
-            else if (gameArray[row][col] === 0 && total === 3) {
+              }else return 1;//Else it lives
+              
+            }else {
+              //We are looking at a dead cell
+              if(total===3){
+                //If it has 3 neighbors it becomes alive
                 return 1;
+              }
             }
-            else {
-                return gameArray[row][col];
-            }
+           
 }
 function countNeighbours(row, col){
             let total_neighbours = 0;
