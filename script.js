@@ -82,7 +82,7 @@ function createArray(){
       gameArray[i][j]=0;
     }
   }
-  
+  inactive_array=gameArray;
 }
 function displayArray(){
   for(let i=0;i<size; i++){
@@ -130,6 +130,10 @@ function updateLifeCycle() {
             gameArray = inactive_array;
          //   document.getElementById("generation").innerHTML = this.generation;
 }
+function gen1(){
+  updateLifeCycle();
+  displayArray();
+}
 function updateCellValue(row, col){
 
             const total = countNeighbours(row, col);
@@ -155,3 +159,12 @@ function countNeighbours(row, col){
             total_neighbours += setCellValueHelper(row + 1, col + 1);
             return total_neighbours;
         }
+function setCellValueHelper(row, col){
+            try {
+                return gameArray[row][col];
+            }
+            catch {
+                return 0;
+            }
+        }
+
