@@ -5,6 +5,7 @@ This was referenced for building the grid: https://javascript.plainenglish.io/th
 
 //user input grid size
 var gameArray;
+var inactive_array = [];
 var size = window.prompt("Enter Number for Grid Size: ");
 createArray();
 //function that loads the game
@@ -101,5 +102,56 @@ function displayArray(){
   }
 }
 function start(){
-  Start a timer to 
+  //Start a timer to increment a generation every 5 sec
+  //Use an interval ?
 }
+function stop(){
+  //Use clearinterval to stop that timer
+}
+function reset(){
+  for(let i=0;i<size; i++){
+    //Initialize a new column
+    gameArray[i]=[];
+    for(let j=0;j<size;j++){
+      gameArray[i][j]=0;
+    }
+  }
+  displayArray();
+}
+//Game of life functions
+function updateLifeCycle() {
+
+            for (let i = 0; i < size; i++) {
+                for (let j = 0; j < size; j++) {
+                    let new_state = updateCellValue(i, j);
+                    inactive_array[i][j] = new_state;
+                }
+            }
+            gameArray = inactive_array;
+         //   document.getElementById("generation").innerHTML = this.generation;
+}
+function updateCellValue(row, col){
+
+            const total = countNeighbours(row, col);
+            if (total > 4 || total < 3) {
+                return 0;
+            }
+            else if (gameArray[row][col] === 0 && total === 3) {
+                return 1;
+            }
+            else {
+                return gameArray[row][col];
+            }
+}
+function countNeighbours(row, col){
+            let total_neighbours = 0;
+            total_neighbours += setCellValueHelper(row - 1, col - 1);
+            total_neighbours += setCellValueHelper(row - 1, col);
+            total_neighbours += setCellValueHelper(row - 1, col + 1);
+            total_neighbours += setCellValueHelper(row, col - 1);
+            total_neighbours += setCellValueHelper(row, col + 1);
+            total_neighbours += setCellValueHelper(row + 1, col - 1);
+            total_neighbours += setCellValueHelper(row + 1, col);
+            total_neighbours += setCellValueHelper(row + 1, col + 1);
+            return total_neighbours;
+        }
