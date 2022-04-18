@@ -136,7 +136,7 @@ function gen1(){
 }
 function updateCellValue(row, col){
 
-            const total = countNeighbours(row, col);
+            let total = countNeighbours(row, col);
             if(gameArray[row][col]=== 1){
               //We are looking at a live cell
               if(total<2 || total>3){
@@ -149,7 +149,8 @@ function updateCellValue(row, col){
               if(total===3){
                 //If it has 3 neighbors it becomes alive
                 return 1;
-              }
+              }else return 0;
+              
             }
            
 }
@@ -164,7 +165,7 @@ function countNeighbours(row, col){
             total_neighbours += setCellValueHelper(row + 1, col);
             total_neighbours += setCellValueHelper(row + 1, col + 1);
             return total_neighbours;
-        }
+}
 function setCellValueHelper(row, col){
             try {
                 return gameArray[row][col];
@@ -172,5 +173,6 @@ function setCellValueHelper(row, col){
             catch {
                 return 0;
             }
-        }
+}
+
 
