@@ -100,3 +100,6 @@ function displayArray(){
     }
   }
 }
+function start(){
+  Start a timer to 
+}
