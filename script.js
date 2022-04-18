@@ -1,6 +1,5 @@
 /* References: 
 This was referenced for building the grid: https://javascript.plainenglish.io/the-game-of-life-using-javascript-fc1aaec8274f
-
 */
 
 //user input grid size
@@ -78,11 +77,19 @@ function createArray(){
   for(let i=0;i<rows; i++){
     //Initialize a new column
     gameArray[i]=[];
+    inactive_array[i]=[];
     for(let j=0;j<columns;j++){
       gameArray[i][j]=0;
+      inactive_array[i][j]=0;
     }
   }
-  inactive_array=gameArray;
+  //inactive_array=gameArray;
+//  for (let i = 0; i < size; i++) {
+ //               for (let j = 0; j < size; j++) {
+  //                inactive_array[i][j]= gameArray[i][j];
+                  
+    //            }
+   //}
 }
 function displayArray(){
   for(let i=0;i<size; i++){
@@ -104,6 +111,7 @@ function displayArray(){
 
 function start(){
   //Start a timer to increment a generation every 5 sec
+  
   //Use an interval ?
 }
 function stop(){
@@ -124,14 +132,24 @@ function updateLifeCycle() {
 
             for (let i = 0; i < size; i++) {
                 for (let j = 0; j < size; j++) {
+                  
+                  console.log(`Examining ${i} , ${j}`);
+                  console.log(gameArray.toString());
                     let new_state = updateCellValue(i, j);
                     inactive_array[i][j] = new_state;
                 }
             }
-            gameArray = inactive_array;
+   for (let i = 0; i < size; i++) {
+                for (let j = 0; j < size; j++) {
+                  gameArray[i][j]= inactive_array[i][j];
+                  
+                }
+   }
+            //gameArray = inactive_array;
          //   document.getElementById("generation").innerHTML = this.generation;
 }
 function gen1(){
+  console.log(gameArray.toString());
   updateLifeCycle();
   displayArray();
 }
@@ -170,15 +188,23 @@ function countNeighbours(row, col){
             total_neighbours += setCellValueHelper(row + 1, col - 1);
             total_neighbours += setCellValueHelper(row + 1, col);
             total_neighbours += setCellValueHelper(row + 1, col + 1);
+            console.log("Total Neighbors:"+total_neighbours);
             return total_neighbours;
 }
 function setCellValueHelper(row, col){
-            try {
-                return gameArray[row][col];
+  console.log(`trying [${row}][${col}]`);
+  console.log(gameArray.toString());
+            if(row<0||row>=size){
+              console.log("Row exceeded size");
+              return 0;              
+            }else if(col<0||col>=size){
+              console.log("Column exceeded size");
+              return 0;            
+            }else {
+              console.log("Valid input:"+gameArray[row][col]);
+              return gameArray[row][col];
             }
-            catch {
-                return 0;
-            }
+            
 }
 
 
