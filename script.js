@@ -9,7 +9,7 @@ var inactive_array = [];
 var size = window.prompt("Enter Number for Grid Size: ");
 createArray();
 //function that loads the game
-function startgame() {
+function startgame(){
     var display = document.getElementById("grid");
     var grid = creategrid();
     display.appendChild(grid);  
@@ -137,23 +137,24 @@ function gen1(){
 function updateCellValue(row, col){
 
             let total = countNeighbours(row, col);
-            if(gameArray[row][col]=== 1){
+            if(gameArray[row][col]== 1){
               //We are looking at a live cell
               if(total<2 || total>3){
                 //If it's underpopulated or overcrowded
                 return 0;
               }else return 1;//Else it lives
               
-            }else {
+            }
+            if(gameArray[row][col]==0){
               //We are looking at a dead cell
-              if(total===3){
+              if(total==3){
                 //If it has 3 neighbors it becomes alive
                 return 1;
               }else return 0;
               
             }
-           
 }
+
 function countNeighbours(row, col){
             let total_neighbours = 0;
             total_neighbours += setCellValueHelper(row - 1, col - 1);
