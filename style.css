@@ -2,6 +2,10 @@
 body {
   background-color: #f5f5f5;
 }
+h1 {
+  font-size: 25pt;
+  color: purple;
+}
 .content {
   width: 100%;
   text-align: center;
@@ -26,8 +30,8 @@ table {
 td {
   background: pink;
   margin: 0px;
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   box-shadow: inset 1px 1px #707070, inset -1px -1px #707070;
 }
 td:hover {
