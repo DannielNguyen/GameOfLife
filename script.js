@@ -43,7 +43,6 @@ function gridcolumns(name,row,column) {
     colattribute.setAttribute("onclick", "select(this)");
     colattribute.setAttribute("row", row);
     colattribute.setAttribute("col", column);
-  
     return colattribute;
 }
 
