@@ -1,15 +1,16 @@
 <?php
 	if(isset($_POST['username']) && isset($_POST['password']))
 	{
-		$userlist = file('profiles.txt');
+		$file = fopen('profiles.txt', 'r');
 		$username = $_POST['username'];
 		$password = $_POST['password'];
 		
 		$success = false;
-		foreach ($userlist as $user) 
+		while (!feof($file)) 
 		{
-			$user_info = explode(' - ', $user);
-			if($user_info[0] == $username && $user_info[1] == $password)
+			$user_info = fgets($file);
+			$arr = explode(' - ', $user_info);
+			if(trim($arr[0]) == $username && trim($arr[1]) == $password)
 			{
 				$success = true;
 				break;
