@@ -68,6 +68,7 @@ function clickcells(td) {
         td.style.background = "black";
     }
 }
+
 function createArray(){
   //I'm using the rows and columns variable to make it easier to understand the structure of my array
   let rows= size;
