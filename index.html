@@ -31,12 +31,18 @@
     <h1>Game of Life</h1>
 		<!-- buttons -->
 		<div class="controlbuttons">
-			<button id="start" onclick="start()">Start</button>
-			<button id="stop" onclick="stop()">Stop</button>
+      <button id="start" onclick="startgame()">Start game</button>
+			<button id="startautogen" onclick="startautogen()">Start auto generating</button>
+			<button id="stop" onclick="stopautogen()">Stop auto generating</button>
       <button id="Display" onclick="displayArray()">Display</button>
 			<button id="gen1" onclick="gen1()">+1 Generation</button>
 			<button id="gen23" onclick="gen23()">+23 Generations</button>
 			<button id="reset" onclick="reset()">Reset</button>
+      <button id="block" onclick="block()">Block</button>
+      <button id="blinker" onclick="blinker()">Blinker</button>
+      <button id="beacon" onclick="beacon()">Beacon</button>
+        
+      
 		</div>
 		<br>
 		<div id="grid"></div>

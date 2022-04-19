@@ -5,10 +5,20 @@ This was referenced for building the grid: https://javascript.plainenglish.io/th
 //user input grid size
 var gameArray;
 var inactive_array = [];
-var size = window.prompt("Enter Number for Grid Size: ");
+var gameClock;
+var size;
+
 createArray();
 //function that loads the game
 function startgame(){
+  let keepPrompting=false;
+  size = window.prompt("Enter Number for Grid Size: (Minimum size is 5)");
+  if(size<5){
+    keepPrompting=true;
+  }
+  while(keepPrompting){
+    
+  }
     var display = document.getElementById("grid");
     var grid = creategrid();
     display.appendChild(grid);  
@@ -109,13 +119,14 @@ function displayArray(){
   }
 }
 
-function start(){
+function startautogen(){
   //Start a timer to increment a generation every 5 sec
-  
+  gameClock=setInterval(gen1,5000);
   //Use an interval ?
 }
-function stop(){
+function stopautogen(){
   //Use clearinterval to stop that timer
+  clearInterval(gameClock);
 }
 function reset(){
   for(let i=0;i<size; i++){
@@ -154,8 +165,10 @@ function gen1(){
   displayArray();
 }
 function gen23(){
-  updateLifeCycle();
-  displayArray();
+  for(let i=0;i<23;i++){
+    
+  }
+  
 }
 function updateCellValue(row, col){
 
@@ -191,6 +204,7 @@ function countNeighbours(row, col){
             console.log("Total Neighbors:"+total_neighbours);
             return total_neighbours;
 }
+
 function setCellValueHelper(row, col){
   console.log(`trying [${row}][${col}]`);
   console.log(gameArray.toString());
@@ -203,8 +217,9 @@ function setCellValueHelper(row, col){
             }else {
               console.log("Valid input:"+gameArray[row][col]);
               return gameArray[row][col];
-            }
-            
+            } 
 }
 
-
+function block(){
+  
+}
