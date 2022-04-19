@@ -4,7 +4,7 @@ body {
 }
 h1 {
   font-size: 25pt;
-  background-image: -webkit-linear-gradient(60deg, #dda0dd, #4b0082);
+  background-image: -webkit-linear-gradient(60deg, #e79fc4, #4b0082);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -48,12 +48,18 @@ td:hover {
 .hidden {
   display: none;
 }
-p{
-   background: pink;
-  color: white;
-  font-size: 15pt;
-  margin: 2px;
-  border-radius: 10px;
-  padding: 10px;
+
+/* generation and population counter */
+#generation {
+  font-size: 16pt;
+  background-image: -webkit-linear-gradient(60deg, #e79fc4, #4b0082);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+#population {
+  font-size: 16pt;
+  background-image: -webkit-linear-gradient(60deg, #e79fc4, #4b0082);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
