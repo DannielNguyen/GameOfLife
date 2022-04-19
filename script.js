@@ -264,7 +264,12 @@ function beacon(){
 }
 function glider(){
   reset();
-  gameArray
+  gameArray[0][2]=1;
+  gameArray[1][0]=1;
+  gameArray[1][2]=1;
+  gameArray[2][1]=1;
+  gameArray[2][2]=1;
+  displayArray();
 }
 
 function hide(ID){
@@ -283,6 +288,7 @@ function showButtons(){
   show("block");
   show("blinker");
   show("beacon");
+  show("glider");
   hide("startgame");
 }
 
