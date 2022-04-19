@@ -8,20 +8,28 @@ var inactive_array = [];
 var gameClock;
 var size;
 
-createArray();
+startgame();
 //function that loads the game
 function startgame(){
-  let keepPrompting=false;
-  size = window.prompt("Enter Number for Grid Size: (Minimum size is 5)");
+ // let keepPrompting=false;
+  //size = window.prompt("Enter Number for Grid Size: (Minimum size is 5)");
+  promptSize();
   if(size<5){
-    keepPrompting=true;
+     alert("You entered a size that was too small (Minimum size is 5)");
+    promptSize();
   }
-  while(keepPrompting){
-    
-  }
+ 
+  createArray();
     var display = document.getElementById("grid");
     var grid = creategrid();
     display.appendChild(grid);  
+}
+function promptSize(){
+  size = window.prompt("Enter Number for Grid Size: (Minimum size is 5)");
+  if(size<5){
+     alert("You entered a size that was too small (Minimum size is 5)");
+    promptSize();
+  }
 }
 
 //creating grid
@@ -193,19 +201,19 @@ function updateCellValue(row, col){
 
 function countNeighbours(row, col){
             let total_neighbours = 0;
-            total_neighbours += setCellValueHelper(row - 1, col - 1);
-            total_neighbours += setCellValueHelper(row - 1, col);
-            total_neighbours += setCellValueHelper(row - 1, col + 1);
-            total_neighbours += setCellValueHelper(row, col - 1);
-            total_neighbours += setCellValueHelper(row, col + 1);
-            total_neighbours += setCellValueHelper(row + 1, col - 1);
-            total_neighbours += setCellValueHelper(row + 1, col);
-            total_neighbours += setCellValueHelper(row + 1, col + 1);
+            total_neighbours += checkCellValueHelper(row - 1, col - 1);
+            total_neighbours += checkCellValueHelper(row - 1, col);
+            total_neighbours += checkCellValueHelper(row - 1, col + 1);
+            total_neighbours += checkCellValueHelper(row, col - 1);
+            total_neighbours += checkCellValueHelper(row, col + 1);
+            total_neighbours += checkCellValueHelper(row + 1, col - 1);
+            total_neighbours += checkCellValueHelper(row + 1, col);
+            total_neighbours += checkCellValueHelper(row + 1, col + 1);
             console.log("Total Neighbors:"+total_neighbours);
             return total_neighbours;
 }
 
-function setCellValueHelper(row, col){
+function checkCellValueHelper(row, col){
   console.log(`trying [${row}][${col}]`);
   console.log(gameArray.toString());
             if(row<0||row>=size){
@@ -221,5 +229,12 @@ function setCellValueHelper(row, col){
 }
 
 function block(){
+  for(let i=size;i<(size/2)+1; i++){
   
+    for(let j=size/2;j<(size/2)+1;j++){
+      gameArray[i][j]=0;
+    }
+  }
+  displayArray();
 }
+
