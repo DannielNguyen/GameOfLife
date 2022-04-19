@@ -172,7 +172,7 @@ function gen1(){
 }
 function gen23(){
   for(let i=0;i<23;i++){
-    
+    gen1();
   }
   
 }
@@ -229,10 +229,20 @@ function checkCellValueHelper(row, col){
 function block(){
   for(let i=0;i<2; i++){
     for(let j=0; j<2; j++){
-      gameArray[i][j]=0;
-      displayArray();
+      gameArray[i][j]=1;
+      
     }
   }
+  displayArray();
+}
+function blinker(){
+  let center = size/2;
+  for (let i=center-1; i<center; i++){
+    for(let j = i; j<i+3; j++)
+    gameArray[i][j] = 1;
+  }
+  
+  displayArray();
 }
 
 function hide(ID){
