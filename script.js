@@ -7,15 +7,11 @@ var gameArray;
 var inactive_array = [];
 var gameClock;
 var size;
-
+var genNumber=0;
 
 //function that loads the game
 function startgame(){
- // let keepPrompting=false;
-  //size = window.prompt("Enter Number for Grid Size: (Minimum size is 5)");
   promptSize();
-
- 
   createArray();
     var display = document.getElementById("grid");
     var grid = creategrid();
@@ -99,13 +95,7 @@ function createArray(){
       inactive_array[i][j]=0;
     }
   }
-  //inactive_array=gameArray;
-//  for (let i = 0; i < size; i++) {
- //               for (let j = 0; j < size; j++) {
-  //                inactive_array[i][j]= gameArray[i][j];
-                  
-    //            }
-   //}
+
 }
 function displayArray(){
   for(let i=0;i<size; i++){
@@ -127,7 +117,7 @@ function displayArray(){
 function startautogen(){
   //Start a timer to increment a generation every 5 sec
   gameClock=setInterval(gen1,5000);
-  //Use an interval ?
+  
 }
 function stopautogen(){
   //Use clearinterval to stop that timer
@@ -148,7 +138,6 @@ function updateLifeCycle() {
 
             for (let i = 0; i < size; i++) {
                 for (let j = 0; j < size; j++) {
-                  
                   console.log(`Examining ${i} , ${j}`);
                   console.log(gameArray.toString());
                     let new_state = updateCellValue(i, j);
@@ -161,8 +150,8 @@ function updateLifeCycle() {
                   
                 }
    }
-            //gameArray = inactive_array;
-         //   document.getElementById("generation").innerHTML = this.generation;
+            gameArray = inactive_array;
+            document.getElementById("generation").innerHTML = genNumber;
 }
 
 function gen1(){
