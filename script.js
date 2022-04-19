@@ -7,10 +7,11 @@ var gameArray;
 var inactive_array = [];
 var gameClock;
 var size;
-var genNumber=0;
+var genNumber;
 
 //function that loads the game
 function startgame(){
+  genNumber=0;
   promptSize();
   createArray();
     var display = document.getElementById("grid");
@@ -112,6 +113,7 @@ function displayArray(){
       }
     }
   }
+  showPopulation();
 }
 
 function startautogen(){
@@ -135,7 +137,7 @@ function reset(){
 }
 //Game of life functions
 function updateLifeCycle() {
-
+genNumber++;
             for (let i = 0; i < size; i++) {
                 for (let j = 0; j < size; j++) {
                   console.log(`Examining ${i} , ${j}`);
@@ -151,7 +153,7 @@ function updateLifeCycle() {
                 }
    }
             gameArray = inactive_array;
-            document.getElementById("generation").innerHTML = genNumber;
+            document.getElementById("generation").innerHTML = "Generation:"+genNumber;
 }
 
 function gen1(){
@@ -278,6 +280,17 @@ function showButtons(){
   show("blinker");
   show("beacon");
   show("glider");
+  show("generation");
+  show("population");
   hide("startgame");
+}
+function showPopulation(){
+  let population=0;
+  for(let i=0;i<size; i++){
+    for(let j=0;j<size;j++){
+      if(gameArray[i][j]==1)population++;
+    }
+  }
+  document.getElementById("population").innerHTML = "Population:"+population;
 }
 

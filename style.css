@@ -48,3 +48,12 @@ td:hover {
 .hidden {
   display: none;
 }
+p{
+   background: pink;
+  color: white;
+  font-size: 15pt;
+  margin: 2px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
