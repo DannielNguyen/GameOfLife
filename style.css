@@ -45,3 +45,6 @@ td:hover {
 .alive {
   background:black;
 }
+.hidden {
+  display: none;
+}

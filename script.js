@@ -8,16 +8,13 @@ var inactive_array = [];
 var gameClock;
 var size;
 
-startgame();
+
 //function that loads the game
 function startgame(){
  // let keepPrompting=false;
   //size = window.prompt("Enter Number for Grid Size: (Minimum size is 5)");
   promptSize();
-  if(size<5){
-     alert("You entered a size that was too small (Minimum size is 5)");
-    promptSize();
-  }
+
  
   createArray();
     var display = document.getElementById("grid");
@@ -30,6 +27,7 @@ function promptSize(){
      alert("You entered a size that was too small (Minimum size is 5)");
     promptSize();
   }
+  showButtons();
 }
 
 //creating grid
@@ -111,7 +109,6 @@ function createArray(){
 }
 function displayArray(){
   for(let i=0;i<size; i++){
-  
     for(let j=0;j<size;j++){
       let id= "td_" + i + "_" + j;
       let curr=document.getElementById(id);
@@ -167,6 +164,7 @@ function updateLifeCycle() {
             //gameArray = inactive_array;
          //   document.getElementById("generation").innerHTML = this.generation;
 }
+
 function gen1(){
   console.log(gameArray.toString());
   updateLifeCycle();
@@ -229,12 +227,30 @@ function checkCellValueHelper(row, col){
 }
 
 function block(){
-  for(let i=size;i<(size/2)+1; i++){
-  
-    for(let j=size/2;j<(size/2)+1;j++){
+  for(let i=0;i<2; i++){
+    for(let j=0; j<2; j++){
       gameArray[i][j]=0;
+      displayArray();
     }
   }
-  displayArray();
+}
+
+function hide(ID){
+  document.getElementById(ID).classList.add("hidden");
+}
+function show(ID){
+  document.getElementById(ID).classList.remove("hidden");
+}
+function showButtons(){
+  show("startautogen");
+  show("stop");
+  show("display");
+  show("gen1");
+  show("gen23");
+  show("reset");
+  show("block");
+  show("blinker");
+  show("beacon");
+  hide("startgame");
 }
 
