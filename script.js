@@ -172,10 +172,11 @@ function gen1(){
 }
 function gen23(){
   for(let i=0;i<23;i++){
-    gen1();
+    updateLifeCycle();
   }
-  
+  displayArray();
 }
+
 function updateCellValue(row, col){
 
             let total = countNeighbours(row, col);
@@ -227,6 +228,7 @@ function checkCellValueHelper(row, col){
 }
 
 function block(){
+  reset();
   for(let i=0;i<2; i++){
     for(let j=0; j<2; j++){
       gameArray[i][j]=1;
@@ -236,13 +238,33 @@ function block(){
   displayArray();
 }
 function blinker(){
-  let center = size/2;
+  reset();
+  let center = Math.floor(size/2);
   for (let i=center-1; i<center; i++){
     for(let j = i; j<i+3; j++)
     gameArray[i][j] = 1;
   }
   
   displayArray();
+}
+function beacon(){
+  reset();
+  for(let i=0;i<2; i++){
+    for(let j=0; j<2; j++){
+      gameArray[i][j]=1;     
+    }
+  }
+  
+  for(let i=2;i<4; i++){
+    for(let j=2; j<4; j++){
+      gameArray[i][j]=1;     
+    }
+  }
+  displayArray();
+}
+function glider(){
+  reset();
+  gameArray
 }
 
 function hide(ID){
