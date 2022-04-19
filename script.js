@@ -152,7 +152,8 @@ genNumber++;
                   
                 }
    }
-            gameArray = inactive_array;
+           
+  
             document.getElementById("generation").innerHTML = "Generation:"+genNumber;
 }
 
