@@ -273,7 +273,7 @@ function show(ID){
 function showButtons(){
   show("startautogen");
   show("stop");
-  show("display");
+  //show("display");
   show("gen1");
   show("gen23");
   show("reset");
